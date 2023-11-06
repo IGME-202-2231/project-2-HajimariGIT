@@ -6,7 +6,7 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 
 ### Student Info
 
--   Name: _YOUR NAME_
+-   Name: Jonathan Ciottone
 -   Section: _##_
 
 ## Simulation Design
