@@ -7,7 +7,7 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 ### Student Info
 
 -   Name: Jonathan Ciottone
--   Section: _#6_
+-   Section: _#5_
 
 ## Simulation Design 
 
