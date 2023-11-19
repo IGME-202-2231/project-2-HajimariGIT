@@ -85,6 +85,7 @@ if vampires population is less than half.
 
 -   _List all project sources here –models, textures, sound clips, assets, etc._
 -   _If an asset is from the Unity store, include a link to the page and the author’s name_
+https://dronnie.itch.io/cute-vampire-character vampire placeholder sprite
 
 ## Make it Your Own
 
