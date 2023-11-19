@@ -67,7 +67,7 @@ Take - Seeks and pulls a hunter away from the pack quickly (can be done once.
 Suck - find hunters with no group
 #### State Transistions
 
-Default state if vampires are doing well.
+Default state if vampires are doing well (more then 50% population). 
    
 ### _State 2 Name_
 
