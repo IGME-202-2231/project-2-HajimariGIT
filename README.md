@@ -1,4 +1,4 @@
-# Project _NAME_
+# Project _Up The Stakes_
 
 [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet)
 
@@ -7,85 +7,79 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 ### Student Info
 
 -   Name: Jonathan Ciottone
--   Section: _##_
+-   Section: _#6_
 
 ## Simulation Design
 
-_A brief explanation of your simulation._
+Oh no! a team of vampire hunters have been amushed by vampires!  Play as air support and drop important supplies to help them survive. Watch as the vampire hunters struggle to gain materials to stop them! 
 
 ### Controls
 
--   _List all of the actions the player can have in your simulation_
-    -   _Include how to preform each action ( keyboard, mouse, UI Input )_
-    -   _Include what impact an action has in the simulation ( if is could be unclear )_
+Press right click to give the hunters wood blocks to craft weapons. Be careful with your placement as you only have so many.
+
+
 
 ## _Agent 1 Name_
 
-_A brief explanation of this agent._
+The hunter will avoid the vampires and try to group up when needed with other agents. If the hunter has enough resources for a weapon then it will chase and kill vampires.
 
 ### _State 1 Name_
 
-**Objective:** _A brief explanation of this state's objective._
+Survive 
+Run away and group up with other hunters
 
 #### Steering Behaviors
 
-- _List all behaviors used by this state_
-   - _If behavior has input data list it here_
-   - _eg, Flee - nearest Agent2_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
+Flee - from vampires 
+Group - toward other hunters
+Pull - take one hunter out of the group to get a weapon. If not in a group that one goes
+
    
 #### State Transistions
 
-- _List all the ways this agent can transition to this state_
-   - _eg, When this agent gets within range of Agent2_
-   - _eg, When this agent has reached target of State2_
+When ones resource is good enough for a weapon
+When one is picked to get wood from the group
+When a group is found 
    
 ### _State 2 Name_
 
-**Objective:** _A brief explanation of this state's objective._
+Kill
 
 #### Steering Behaviors
 
-- _List all behaviors used by this state_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
-   
+Kill- will prioritize seeking lower level vampires first and vampires that have killed before 
+
 #### State Transistions
 
-- _List all the ways this agent can transition to this state_
+When enough wood is gathered
 
 ## _Agent 2 Name_
 
-_A brief explanation of this agent._
+The vampire wil separate from the flock if there is enough vampires and hunt the hunters
 
 ### _State 1 Name_
 
-**Objective:** _A brief explanation of this state's objective._
-
+Feed
+Chase hunters seperate from the group (if there are non try to get one in the group).
 #### Steering Behaviors
 
-- _List all behaviors used by this state_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
-   
+Take - Seeks and pulls a hunter away from the pack quickly (can be done once.
+Suck - find hunters with no group
 #### State Transistions
 
-- _List all the ways this agent can transition to this state_
+Default state if vampires are doing well.
    
 ### _State 2 Name_
 
-**Objective:** _A brief explanation of this state's objective._
-
+Survive 
 #### Steering Behaviors
 
-- _List all behaviors used by this state_
-- Obstacles - _List all obstacle types this state avoids_
-- Seperation - _List all agents this state seperates from_
+Hide - Group up with other vmpires 
+Avoid - avoid the hunter
    
 #### State Transistions
 
-- _List all the ways this agent can transition to this state_
+if vampires population is less than half.
 
 ## Sources
 
