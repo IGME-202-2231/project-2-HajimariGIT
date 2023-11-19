@@ -89,9 +89,9 @@ https://dronnie.itch.io/cute-vampire-character vampire placeholder sprite
 
 ## Make it Your Own
 
-- _List out what you added to your game to make it different for you_
-- _If you will add more agents or states make sure to list here and add it to the documention above_
-- _If you will add your own assets make sure to list it here and add it to the Sources section
+I will be doing my own art and will have multiple weapons for hunters. 
+Each with their on functionallity and art.
+Art will be exaggerated and cartoony.
 
 ## Known Issues
 
