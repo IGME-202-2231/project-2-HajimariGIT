@@ -9,7 +9,7 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 -   Name: Jonathan Ciottone
 -   Section: _#6_
 
-## Simulation Design
+## Simulation Design 
 
 Oh no! a team of vampire hunters have been amushed by vampires!  Play as air support and drop important supplies to help them survive. Watch as the vampire hunters struggle to gain materials to stop them! 
 
