@@ -12,6 +12,7 @@ public abstract class agent : MonoBehaviour
     public float maxSpeed;
     public  AgentManager manager;
     public float seperateRange=1f;
+    public float avoidTime = 1f;
   //  float boundWeight = 1;
 
 
@@ -179,6 +180,43 @@ public abstract class agent : MonoBehaviour
         }
 
         return steeringforce;
+    }
+
+
+
+
+    private void OnDrawGizmos()
+    {
+        //
+        //  Draw safe space box
+        //
+        Vector3 futurePos = CalcFuturePosition(1);
+
+        float dist = Vector3.Distance(transform.position, futurePos) + PhysicsObject.radius;
+
+        Vector3 boxSize = new Vector3(PhysicsObject.radius * 2f,
+            dist
+            , PhysicsObject.radius * 2f);
+
+        Vector3 boxCenter = Vector3.zero;
+        boxCenter.y += dist / 2f;
+
+        Gizmos.color = Color.green;
+
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawWireCube(boxCenter, boxSize);
+        Gizmos.matrix = Matrix4x4.identity;
+
+
+        //
+        //  Draw lines to found obstacles
+        //
+        Gizmos.color = Color.yellow;
+
+       /* foreach (Vector3 pos in foundObstacles)
+        {
+            Gizmos.DrawLine(transform.position, pos);
+        }*/
     }
 
 

@@ -16,6 +16,8 @@ public class AgentManager : MonoBehaviour
     public float spawnNum = 10f;
     public GameObject ag;
     public AgentManager agentManager;
+
+    public List <obstacle> obstacles;
     void Start()
     {
         SpawnAgent();
