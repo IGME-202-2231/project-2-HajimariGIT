@@ -16,8 +16,11 @@ public class AgentManager : MonoBehaviour
     public float spawnNum = 10f;
     public GameObject ag;
     public AgentManager agentManager;
+    public GameObject one;
+    public GameObject two;
 
-    public List <obstacle> obstacles;
+
+    public List<obstacles> obstacles;
     void Start()
     {
         SpawnAgent();
@@ -26,7 +29,7 @@ public class AgentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     
+
 
     }
 
@@ -42,7 +45,7 @@ public class AgentManager : MonoBehaviour
             NewAgent = Instantiate(ag, SpawnNew, Quaternion.identity);
             NewAgent.GetComponent<agent>().manager = this;
             agents.Add(NewAgent.GetComponent<agent>());
-           
+
 
 
 
@@ -55,18 +58,18 @@ public class AgentManager : MonoBehaviour
 
     public agent FlockClosestPlayer()
     {
-        
+
         float min = Mathf.Infinity, dis;
         agent nearest = null;
 
 
-        foreach(agent player in agents)
+        foreach (agent player in agents)
         {
-            if(player != ItPlayer)
+            if (player != ItPlayer)
             {
                 dis = Vector2.Distance(ItPlayer.transform.position, player.transform.position);
 
-                if(dis < min)
+                if (dis < min)
                 {
                     nearest = player;
                     min = dis;
@@ -76,7 +79,6 @@ public class AgentManager : MonoBehaviour
         return nearest;
     }
 
-    
 }
 
 

@@ -111,7 +111,7 @@ MonoBehaviour:
   gravity: 0
   friction: 0
   radius: 0
-  renderer: {fileID: 0}
+  renderer: {fileID: 8045743059781911732}
 --- !u!114 &6239067890852437974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,6 +131,9 @@ MonoBehaviour:
   maxSpeed: 10
   manager: {fileID: 0}
   seperateRange: 1
+  avoidTime: 1
+  avoidDist: 0
+  foundObstacles: []
   time: 10
   radius: 1
   boundWeight: 1.6
