@@ -202,7 +202,7 @@ public abstract class agent : MonoBehaviour
             float forwardDot = Vector3.Dot(PhysicsObject.Direction, aToO);
 
             if (forwardDot >= -obstacle.Radius && forwardDot <= avoidDist + obstacle.Radius
-                && Mathf.Abs(rightDot) <= PhysicsObject.Radius + obstacle.Radius)
+                && Mathf.Abs(rightDot) <= PhysicsObject.Radius + obstacle.Radius) 
             {
                 foundObstacles.Add(obstacle.transform.position);
 
