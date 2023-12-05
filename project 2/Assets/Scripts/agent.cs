@@ -206,15 +206,15 @@ public abstract class agent : MonoBehaviour
             {
                 foundObstacles.Add(obstacle.transform.position);
 
-                Vector3 steeringForce = transform.right * (forwardDot / avoidDist) * maxSpeed;
+                Vector3 Force = transform.right * (forwardDot / avoidDist) * maxSpeed;
 
                 if (rightDot < 0)
                 {
-                    totalAvoidForce += steeringForce;
+                    totalAvoidForce += Force;
                 }
                 else
                 {
-                    totalAvoidForce -= steeringForce;
+                    totalAvoidForce -= Force;
                 }
             }
         }
