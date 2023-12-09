@@ -31,7 +31,7 @@ public class wanderer : agent
     private void OnDrawGizmos()
     {
         //
-        //  Draw safe space box
+        //  Draw safe space box 
         //
         Vector3 futurePos = CalcFuturePosition(avoidTime);
 
