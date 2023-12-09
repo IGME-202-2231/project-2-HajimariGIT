@@ -110,6 +110,21 @@ public abstract class agent : MonoBehaviour
         return Flee(target.transform.position);
     }
 
+    protected Vector3 FleeAll(List<agent> agents)
+    {
+        Vector3 totalFleeingForce = Vector3.zero;
+        foreach (agent agent in agents)
+        {
+            totalFleeingForce += Flee(agent);
+        }
+        return totalFleeingForce;
+    }
+
+    protected Vector3 FleeAllStart()
+    {
+        return FleeAll(manager.agents);
+    }
+
 
     protected Vector3 Wander(float time, float radius)
     {
@@ -133,23 +148,7 @@ public abstract class agent : MonoBehaviour
 
     protected Vector3 StayInBounds()
     {
-        /* if (transform.position.y > PhysicsObject.totalCamheight / 2f)
-         {
-            Velocity.y *= -1f;
-         }
-        else if (transform.position.y < -PhysicsObject.totalCamheight / 2f)
-        {
-            Velocity.y *= -1f;
-        }
-
-        if (transform.position.x > PhysicsObject.totalCamwidth / 2f)
-        {
-            Velocity.x *= -1f; 
-        }
-        else if (transform.position.x > -PhysicsObject.totalCamwidth / 2f)
-        {
-            Velocity.x *= -1f;
-        }*/
+      
 
 
 
@@ -157,6 +156,28 @@ public abstract class agent : MonoBehaviour
              || transform.position.x >= PhysicsObject.totalCamwidth / 2 - 2.3 || transform.position.x <= -PhysicsObject.totalCamwidth / 2 + 2.3)
         {
             return Seek(Vector3.zero);
+        }
+        else
+        {
+            return Vector3.zero;
+
+        }
+
+
+
+
+    }
+
+    protected Vector3 StayInBoundsV2(GameObject one)
+    {
+
+
+
+
+        if (transform.position.y >= PhysicsObject.totalCamheight / 2 - 2.5 || transform.position.y <= -PhysicsObject.totalCamheight / 2 + 2.5
+             || transform.position.x >= PhysicsObject.totalCamwidth / 2 - 2.3 || transform.position.x <= -PhysicsObject.totalCamwidth / 2 + 2.3)
+        {
+            return Seek(one);
         }
         else
         {

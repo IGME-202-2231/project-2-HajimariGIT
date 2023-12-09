@@ -23,7 +23,7 @@ public class wanderer : agent
         PhysicsObject.ApplyForce(Wander(time, radius) * wanderWeight );
         PhysicsObject.ApplyForce(StayInBounds() * boundWeight);
         PhysicsObject.ApplyForce(AvoidObstacles(1f) * 5f);
-       // PhysicsObject.ApplyForce(Seperate());
+        PhysicsObject.ApplyForce(Seperate());
 
 
     }
