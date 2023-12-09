@@ -25,7 +25,7 @@ public class wanderer : agent
         PhysicsObject.ApplyForce(AvoidObstacles(1f) * 5f);
         PhysicsObject.ApplyForce(Seperate());
 
-
+         
     }
 
     private void OnDrawGizmos()
