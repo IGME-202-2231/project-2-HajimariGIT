@@ -73,6 +73,48 @@ public abstract class agent : MonoBehaviour
         return Seek(target.transform.position);
     }
 
+    protected Vector3 SeekNearestAgent(List<agent> agents)
+    {
+        // Ensure that the agents list is not null or empty
+        if (agents == null || agents.Count == 0)
+        {
+            Debug.Log("hi1");
+            return Vector3.zero; // Return zero vector if the agents list is null or empty
+        }
+
+        // Find the nearest agent
+        agent nearestAgent = null;
+        float shortestDistance = float.MaxValue;
+        foreach (agent currentAgent in agents)
+        {
+            // Check if the current agent is null
+            if (currentAgent == null)
+            {
+                continue;
+            }
+
+            float distance = Vector3.Distance(transform.position, currentAgent.transform.position);
+            if (distance < shortestDistance)
+            {
+                shortestDistance = distance;
+                nearestAgent = currentAgent;
+            }
+        }
+
+        // Check if a nearest agent is found
+        if (nearestAgent != null)
+        {
+            Debug.Log("hi");
+            // Call the Seek method with the position of the nearest agent
+            return Seek(nearestAgent.gameObject);
+        }
+        else
+        {
+            Debug.Log("hi3");
+            return Vector3.zero; // Return zero vector if no nearest agent is found
+        }
+    }
+
     protected Vector3 Flee(Vector3 targetPos)
     {
         // Calculate desired velocity

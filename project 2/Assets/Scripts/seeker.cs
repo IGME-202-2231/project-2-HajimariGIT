@@ -6,6 +6,7 @@ public class seeker : agent
 {
     public GameObject target;
     Vector3 position;
+    public int test;
 
 
 
@@ -21,9 +22,15 @@ public class seeker : agent
 
     protected override void CalcSteeringForce()
     {
-        PhysicsObject.ApplyForce(Seek(target));
+       // PhysicsObject.ApplyForce(Seek(target));
+        //PhysicsObject.ApplyForce(StayInBoundsV2(target) * 10f);
+       // PhysicsObject.ApplyForce(StayInBounds() * 1f);
 
-      
+        PhysicsObject.ApplyForce(SeekNearestAgent(manager.agents));
+
+        
+
+
 
     }
 
