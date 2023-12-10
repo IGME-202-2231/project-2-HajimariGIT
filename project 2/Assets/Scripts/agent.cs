@@ -65,29 +65,26 @@ public abstract class agent : MonoBehaviour
 
     protected Vector3 Seek(GameObject target)
     {
-        // Call the other version of Seek 
-        //   which returns the seeking steering force
-        //  and then return that returned vector. 
-
+       
 
         return Seek(target.transform.position);
     }
 
     protected Vector3 SeekNearestAgent(List<agent> agents)
     {
-        // Ensure that the agents list is not null or empty
+        
         if (agents == null || agents.Count == 0)
         {
             Debug.Log("hi1");
-            return Vector3.zero; // Return zero vector if the agents list is null or empty
+            return Vector3.zero; 
         }
 
-        // Find the nearest agent
+      
         agent nearestAgent = null;
         float shortestDistance = float.MaxValue;
         foreach (agent currentAgent in agents)
         {
-            // Check if the current agent is null
+          
             if (currentAgent == null)
             {
                 continue;
@@ -101,17 +98,17 @@ public abstract class agent : MonoBehaviour
             }
         }
 
-        // Check if a nearest agent is found
+      
         if (nearestAgent != null)
         {
             Debug.Log("hi");
-            // Call the Seek method with the position of the nearest agent
+          
             return Seek(nearestAgent.gameObject);
         }
         else
         {
             Debug.Log("hi3");
-            return Vector3.zero; // Return zero vector if no nearest agent is found
+            return Vector3.zero; 
         }
     }
 
@@ -132,9 +129,7 @@ public abstract class agent : MonoBehaviour
 
     protected Vector3 Flee(GameObject target)
     {
-        // Call the other version of Seek 
-        //   which returns the seeking steering force
-        //  and then return that returned vector. 
+       
 
 
 
@@ -143,30 +138,42 @@ public abstract class agent : MonoBehaviour
 
     protected Vector3 Flee(agent target)
     {
-        // Call the other version of Seek 
-        //   which returns the seeking steering force
-        //  and then return that returned vector. 
-
+       
 
 
         return Flee(target.transform.position);
     }
 
-    protected Vector3 FleeAll(List<agent> agents)
+    protected Vector3 FleeAll(List<agent> agents, float maxFleeDistance)
     {
         Vector3 totalFleeingForce = Vector3.zero;
-        foreach (agent agent in agents)
+
+        foreach (agent currentAgent in agents)
         {
-            totalFleeingForce += Flee(agent);
+         
+            if (currentAgent == null)
+            {
+                continue;
+            }
+
+          
+            float distance = Vector3.Distance(transform.position, currentAgent.transform.position);
+
+      
+            if (distance < maxFleeDistance)
+            {
+              
+                totalFleeingForce += Flee(currentAgent);
+            }
         }
+
         return totalFleeingForce;
     }
 
-    protected Vector3 FleeAllStart()
+    protected Vector3 FleeAllStart(float maxFleeDistance)
     {
-        return FleeAll(manager.agents);
+        return FleeAll(manager.agents, maxFleeDistance);
     }
-
 
     protected Vector3 Wander(float time, float radius)
     {
