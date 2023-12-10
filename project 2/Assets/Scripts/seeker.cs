@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class seeker : agent
 {
-    public GameObject target;
+    public GameObject target; 
     Vector3 position;
     public int test;
 
+     
 
 
-
-    // Start is called before the first frame update
+    // Start is called before the first frame update 
     void Start()
     {
         
