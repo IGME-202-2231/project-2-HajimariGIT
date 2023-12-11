@@ -170,6 +170,7 @@ public class AgentManager : MonoBehaviour
         Instantiate(hunter, spawnhunter, Quaternion.identity);
         hunter.GetComponent<agent>().manager = this;
         hunter.GetComponent<seeker>().target = targetOne;
+        hunter.GetComponent<PhysicsObject>().mass = 2.0f;
 
 
 
@@ -181,24 +182,23 @@ public class AgentManager : MonoBehaviour
         float wanderRadius = 0.1f;
         foreach (agent currentAgent in agents)
         {
-            bool foundHuman = false; // Flag to check if a human is found within seekRadius
-
+            bool foundHuman = false;
             foreach (agent human in humans)
             {
                 distance = Vector3.Distance(currentAgent.transform.position, human.transform.position);
 
                 if (distance < huntRadius)
                 {
-                    Debug.Log("Found human within hunt radius, switching to hunt state.");
+                    Debug.Log("Found human, move to hunt state.");
                     currentAgent.GetComponent<wanderer>().SwitchState(wanderer.State.hunt);
                     foundHuman = true;
-                    break; // No need to check other humans if one is found within hunt radius
+                    break; 
                 }
             }
 
             if (!foundHuman && distance > wanderRadius)
             {
-                Debug.Log("No human found within wander radius, switching to wander state.");
+                Debug.Log("No human found , move to wander state.");
                 currentAgent.GetComponent<wanderer>().SwitchState(wanderer.State.wander);
             }
         }
@@ -227,6 +227,10 @@ public class AgentManager : MonoBehaviour
         }
         return nearest;
     }
+
+
+
+
 
 }
 

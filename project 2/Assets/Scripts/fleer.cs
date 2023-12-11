@@ -10,8 +10,10 @@ public class fleer : agent
     public bool hit;
     public float boundWeight = 1f;
     public AgentManager maanger;
-    public float dis = 5f;
+    public float dis = 2f;
+    public bool isfleer = true;
 
+    
     public enum fleerState
     {
         defaultFlee

@@ -20,7 +20,7 @@ public class seeker : agent
     // Start is called before the first frame update 
     void Start()
     {
-        seekerState seekState = seekerState.defualtSeeker;
+         seekState = seekerState.defualtSeeker;
     }
 
 

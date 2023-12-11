@@ -104,11 +104,14 @@ MonoBehaviour:
   Acelleration: {x: 0, y: 0, z: 0}
   mass: 1
   maxSpeed: 10
+  totalCamheight: 0
+  totalCamwidth: 0
   useGravity: 0
   useFriction: 0
   gravity: 0
   friction: 0
   radius: 0
+  renderer: {fileID: 0}
 --- !u!114 &106046251637643232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,4 +129,11 @@ MonoBehaviour:
   myPos: {x: 0, y: 0, z: 0}
   currentVelocity: {x: 0, y: 0, z: 0}
   maxSpeed: 10
-  target: {fileID: 0}
+  manager: {fileID: 0}
+  seperateRange: 1
+  avoidTime: 1
+  avoidDist: 0
+  foundObstacles: []
+  seekRadius: 5
+  target: {fileID: 1426795754979388768, guid: 01c2be0dbbca6fe4ca1725bcd3bf76b8, type: 3}
+  test: 0

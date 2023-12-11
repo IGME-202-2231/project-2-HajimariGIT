@@ -8,10 +8,11 @@ public class wanderer : agent
    // Start is called before the first frame update
     public float time = 1f;
     public float radius = 1f;
-    public float boundWeight = 2f;
+    public float boundWeight = 5f;
     float avoidWeight = 1f;
     float wanderWeight=1.4f;
     float avoidTime = 1f;
+    public bool isWander = true;
 
     public enum State 
     {

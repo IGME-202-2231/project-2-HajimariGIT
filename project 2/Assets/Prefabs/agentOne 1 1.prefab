@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b06f51ee5ceb07a408fa4a816b442ff1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a63e2c29ad71d954ba98cf8d2f1c526a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,6 +134,9 @@ MonoBehaviour:
   avoidTime: 1
   avoidDist: 0
   foundObstacles: []
+  seekRadius: 5
   time: 10
   radius: 1
   boundWeight: 1.6
+  isWander: 1
+  state: 0
