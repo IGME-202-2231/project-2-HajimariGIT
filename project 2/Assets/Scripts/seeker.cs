@@ -8,13 +8,19 @@ public class seeker : agent
     Vector3 position;
     public int test;
 
-     
+    public enum seekerState
+    {
+        defualtSeeker
+    }
+    seekerState seekState = new seekerState();
+
+
 
 
     // Start is called before the first frame update 
     void Start()
     {
-        
+        seekerState seekState = seekerState.defualtSeeker;
     }
 
 
@@ -26,7 +32,11 @@ public class seeker : agent
         //PhysicsObject.ApplyForce(StayInBoundsV2(target) * 10f);
        // PhysicsObject.ApplyForce(StayInBounds() * 1f);
 
-        PhysicsObject.ApplyForce(SeekNearestAgent(manager.agents));
+        if(seekState == seekerState.defualtSeeker)
+        {
+            PhysicsObject.ApplyForce(SeekNearestAgent(manager.agents));
+        }
+     
 
         
 

@@ -12,6 +12,12 @@ public class wanderer : agent
     float avoidWeight = 1f;
     float wanderWeight=1.4f;
     float avoidTime = 1f;
+
+    public enum State
+    {
+        wander,
+        hunt
+    }
     
 
     protected override void CalcSteeringForce()

@@ -79,6 +79,7 @@ public class AgentManager : MonoBehaviour
         Instantiate(humanOne, spawnOne, Quaternion.identity);   
         humanOne.GetComponent<agent>().manager = this;
         humanOne.GetComponent<fleer>().target = targetOne;
+        humanOne.GetComponent<fleer>().fleeState = fleer.fleerState.defaultFlee;
 
         Vector3 spawnTwo = new Vector3();
         spawnTwo.x = -8f;
@@ -86,6 +87,7 @@ public class AgentManager : MonoBehaviour
         Instantiate(humanTwo, spawnTwo, Quaternion.identity);
         humanTwo.GetComponent<agent>().manager = this;
         humanTwo.GetComponent<fleer>().target = targetOne;
+        humanTwo.GetComponent<fleer>().fleeState = fleer.fleerState.defaultFlee;
 
         ///taregt 2
 
@@ -95,6 +97,7 @@ public class AgentManager : MonoBehaviour
         Instantiate(humanThree, spawnThree, Quaternion.identity);
         humanThree.GetComponent<agent>().manager = this;
         humanThree.GetComponent<fleer>().target = targetTwo;
+        humanThree.GetComponent<fleer>().fleeState = fleer.fleerState.defaultFlee;
 
         Vector3 spawnFour = new Vector3();
         spawnFour.x = 9.09f;
@@ -102,6 +105,7 @@ public class AgentManager : MonoBehaviour
         Instantiate(humanFour, spawnFour, Quaternion.identity);
         humanFour.GetComponent<agent>().manager = this;
         humanFour.GetComponent<fleer>().target = targetTwo;
+        humanFour.GetComponent<fleer>().fleeState = fleer.fleerState.defaultFlee;
 
         //target 3
 
@@ -111,6 +115,7 @@ public class AgentManager : MonoBehaviour
         Instantiate(humanFive, spawnFive, Quaternion.identity);
         humanFive.GetComponent<agent>().manager = this;
         humanFive.GetComponent<fleer>().target = targetThree;
+        humanFive.GetComponent<fleer>().fleeState = fleer.fleerState.defaultFlee;
 
         Vector3 spawnSix = new Vector3();
         spawnSix.x = -7.22f;
@@ -118,6 +123,7 @@ public class AgentManager : MonoBehaviour
         Instantiate(humanSix, spawnSix, Quaternion.identity);
         humanSix.GetComponent<agent>().manager = this;
         humanSix.GetComponent<fleer>().target = targetThree;
+        humanSix.GetComponent<fleer>().fleeState = fleer.fleerState.defaultFlee;
 
         //target four
 
@@ -127,6 +133,7 @@ public class AgentManager : MonoBehaviour
         Instantiate(humanSeven, spawnSeven, Quaternion.identity);
         humanSeven.GetComponent<agent>().manager = this;
         humanSeven.GetComponent<fleer>().target = targetFour;
+        humanSeven.GetComponent<fleer>().fleeState = fleer.fleerState.defaultFlee;
 
         Vector3 spawnEight = new Vector3();
         spawnEight.x = -8.04f;
@@ -134,6 +141,7 @@ public class AgentManager : MonoBehaviour
         Instantiate(humanEight, spawnEight, Quaternion.identity);
         humanEight.GetComponent<agent>().manager = this;
         humanEight.GetComponent<fleer>().target = targetFour;
+        humanEight.GetComponent<fleer>().fleeState = fleer.fleerState.defaultFlee;
 
 
 
@@ -147,6 +155,7 @@ public class AgentManager : MonoBehaviour
         spawnhunter.x = 4.5f;
         spawnhunter.y = 3.97f;
         Instantiate(hunter, spawnhunter, Quaternion.identity);
+        hunter.GetComponent<agent>().manager = this;
         hunter.GetComponent<seeker>().target = targetOne;
 
 

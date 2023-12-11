@@ -12,6 +12,13 @@ public class fleer : agent
     public AgentManager maanger;
     public float dis = 5f;
 
+    public enum fleerState
+    {
+        defaultFlee
+    }
+
+    public fleerState fleeState = new fleerState();
+
 
 
 
@@ -23,10 +30,13 @@ public class fleer : agent
 
     protected override void CalcSteeringForce()
     {
+        if(fleeState == fleerState.defaultFlee)
+        {
+            PhysicsObject.ApplyForce(StayInBoundsV2(target) * 10f);
 
-        PhysicsObject.ApplyForce(StayInBoundsV2(target) * 10f);
-
-        PhysicsObject.ApplyForce(FleeAllStart(dis));
+            PhysicsObject.ApplyForce(FleeAllStart(dis));
+        }
+       
      
       
       
