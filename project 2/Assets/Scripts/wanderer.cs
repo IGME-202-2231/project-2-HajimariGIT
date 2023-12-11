@@ -13,7 +13,7 @@ public class wanderer : agent
     float wanderWeight=1.4f;
     float avoidTime = 1f;
 
-    public enum State
+    public enum State 
     {
         wander,
         hunt
