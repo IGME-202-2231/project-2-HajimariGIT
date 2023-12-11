@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class playermanager : MonoBehaviour
 {
-    public GameObject objectToSpawn; // Assign your prefab or GameObject in the Unity Editor
+    public GameObject Spawn; // Assign your prefab or GameObject in the Unity Editor
     public AgentManager manager;
 
     void Update()
@@ -12,14 +12,14 @@ public class playermanager : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) // Left mouse button click
         {
             // Get the mouse position in the game world
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition.z = Camera.main.nearClipPlane; // Set the distance from the camera
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = Camera.main.nearClipPlane; // Set the distance from the camera
 
             // Convert the mouse position to a world point
-            Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            Vector3 fixedPos = Camera.main.ScreenToWorldPoint(mousePos);
 
             // Instantiate the object at the clicked position
-            GameObject newObject = Instantiate(objectToSpawn, worldPosition, Quaternion.identity);
+            GameObject newObject = Instantiate(Spawn, fixedPos, Quaternion.identity);
 
             // Add the instantiated object to the manager's list
             manager.obstacles.Add(newObject.GetComponent<obstacles>());

@@ -34,9 +34,10 @@ public class fleer : agent
     {
         if(fleeState == fleerState.defaultFlee)
         {
-            PhysicsObject.ApplyForce(StayInBoundsV2(target) * 10f);
-
             PhysicsObject.ApplyForce(FleeAllStart(dis));
+            PhysicsObject.ApplyForce(StayInBoundsV2(target) * 2.5f);
+
+           
         }
        
      

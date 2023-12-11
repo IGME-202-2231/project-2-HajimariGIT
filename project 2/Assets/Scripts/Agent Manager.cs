@@ -172,6 +172,14 @@ public class AgentManager : MonoBehaviour
         hunter.GetComponent<seeker>().target = targetOne;
         hunter.GetComponent<PhysicsObject>().mass = 2.0f;
 
+        Vector3 spawnhunterTwo = new Vector3();
+        spawnhunterTwo.x = -4.5f;
+        spawnhunterTwo.y = 3.97f;
+        GameObject next = Instantiate(hunter, spawnhunterTwo, Quaternion.identity);
+        next.GetComponent<agent>().manager = this;
+        next.GetComponent<seeker>().target = targetOne;
+        next.GetComponent<PhysicsObject>().mass = 2.0f;
+
 
 
     }

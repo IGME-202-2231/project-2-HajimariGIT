@@ -34,7 +34,8 @@ public class seeker : agent
 
         if(seekState == seekerState.defualtSeeker)
         {
-            PhysicsObject.ApplyForce(SeekNearestAgent(manager.agents));
+            PhysicsObject.ApplyForce(SeekNear(manager.agents));
+            PhysicsObject.ApplyForce(StayInBounds());
         }
      
 

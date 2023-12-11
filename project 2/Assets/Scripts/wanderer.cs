@@ -34,13 +34,13 @@ public class wanderer : agent
         {
             PhysicsObject.ApplyForce(Wander(time, radius) * wanderWeight);
             PhysicsObject.ApplyForce(StayInBounds() * boundWeight);
-            PhysicsObject.ApplyForce(AvoidObstacles(1f) * 5f);
+            PhysicsObject.ApplyForce(AvoidObstacles(1f) * 5.5f);
             PhysicsObject.ApplyForce(Seperate());
         }
        else if(state == State.hunt)
         {
-            PhysicsObject.ApplyForce(AvoidObstacles(1f) * 5f);
-            PhysicsObject.ApplyForce(SeekNearestAgent(manager.humans));
+            PhysicsObject.ApplyForce(AvoidObstacles(1f) * 10f);
+            PhysicsObject.ApplyForce(SeekNear(manager.humans));
         }
 
       

@@ -71,40 +71,33 @@ public abstract class agent : MonoBehaviour
         return Seek(target.transform.position);
     }
 
-    protected Vector3 SeekNearestAgent(List<agent> agents)
+    protected Vector3 SeekNear(List<agent> agents)
     {
-        
-        if (agents == null || agents.Count == 0)
-        {
-            Debug.Log("hi1");
-            return Vector3.zero; 
-        }
-
-      
-        agent nearestAgent = null;
-        float shortestDistance = float.MaxValue;
-        foreach (agent currentAgent in agents)
+       
+        agent near = null;
+        float shortest = float.MaxValue;
+        foreach (agent agentNow in agents)
         {
           
-            if (currentAgent == null)
+            if (agentNow == null)
             {
                 continue;
             }
 
-            float distance = Vector3.Distance(transform.position, currentAgent.transform.position);
-            if (distance < shortestDistance)
+            float distance = Vector3.Distance(transform.position, agentNow.transform.position);
+            if (distance < shortest)
             {
-                shortestDistance = distance;
-                nearestAgent = currentAgent;
+                shortest = distance;
+                near = agentNow;
             }
         }
 
       
-        if (nearestAgent != null)
+        if (near != null)
         {
             Debug.Log("hi");
           
-            return Seek(nearestAgent.gameObject);
+            return Seek(near.gameObject);
         }
         else
         {
@@ -145,35 +138,29 @@ public abstract class agent : MonoBehaviour
         return Flee(target.transform.position);
     }
 
-    protected Vector3 FleeAll(List<agent> agents, float maxFleeDistance)
+    protected Vector3 FleeAll(List<agent> agents, float max)
     {
-        Vector3 totalFleeingForce = Vector3.zero;
+        Vector3 total = Vector3.zero;
 
-        foreach (agent currentAgent in agents)
+        foreach (agent now in agents)
         {
          
-            if (currentAgent == null)
-            {
-                continue;
-            }
-
-          
-            float distance = Vector3.Distance(transform.position, currentAgent.transform.position);
+            float distance = Vector3.Distance(transform.position, now.transform.position);
 
       
-            if (distance < maxFleeDistance)
+            if (distance < max)
             {
               
-                totalFleeingForce += Flee(currentAgent);
+                total += Flee(now);
             }
         }
 
-        return totalFleeingForce;
+        return total;
     }
 
-    protected Vector3 FleeAllStart(float maxFleeDistance)
+    protected Vector3 FleeAllStart(float max)
     {
-        return FleeAll(manager.agents, maxFleeDistance);
+        return FleeAll(manager.agents, max);
     }
 
     protected Vector3 Wander(float time, float radius)
