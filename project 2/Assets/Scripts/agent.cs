@@ -16,6 +16,7 @@ public abstract class agent : MonoBehaviour
     public float avoidDist = 0f;
     //  float boundWeight = 1;
     public List<Vector3> foundObstacles = new List<Vector3>();
+    public float seekRadius = 5f;
 
 
 
@@ -292,14 +293,22 @@ public abstract class agent : MonoBehaviour
         return totalAvoidForce;
     }
 
+  
 
-
-
-
-
-
-
-
-
-
+ 
 }
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+

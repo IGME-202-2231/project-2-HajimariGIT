@@ -8,7 +8,7 @@ public class wanderer : agent
    // Start is called before the first frame update
     public float time = 1f;
     public float radius = 1f;
-    public float boundWeight = 1f;
+    public float boundWeight = 2f;
     float avoidWeight = 1f;
     float wanderWeight=1.4f;
     float avoidTime = 1f;
@@ -17,8 +17,11 @@ public class wanderer : agent
     {
         wander,
         hunt
-    } 
-    
+    }
+
+    public State state = State.wander;
+
+   
 
     protected override void CalcSteeringForce()
     { 
@@ -26,10 +29,20 @@ public class wanderer : agent
         PhysicsObject.ApplyForce(StayInBounds() *1 );
         PhysicsObject.ApplyForce(Wander(time,radius));*/
 
-        PhysicsObject.ApplyForce(Wander(time, radius) * wanderWeight );
-        PhysicsObject.ApplyForce(StayInBounds() * boundWeight);
-        PhysicsObject.ApplyForce(AvoidObstacles(1f) * 5f);
-        PhysicsObject.ApplyForce(Seperate());
+        if(state == State.wander)
+        {
+            PhysicsObject.ApplyForce(Wander(time, radius) * wanderWeight);
+            PhysicsObject.ApplyForce(StayInBounds() * boundWeight);
+            PhysicsObject.ApplyForce(AvoidObstacles(1f) * 5f);
+            PhysicsObject.ApplyForce(Seperate());
+        }
+       else if(state == State.hunt)
+        {
+            PhysicsObject.ApplyForce(AvoidObstacles(1f) * 5f);
+            PhysicsObject.ApplyForce(SeekNearestAgent(manager.humans));
+        }
+
+      
 
          
     }
@@ -66,5 +79,11 @@ public class wanderer : agent
          }
     }
 
+
+    public void SwitchState(State newState)
+    {
+        state = newState;
+       
+    }
 
 }
