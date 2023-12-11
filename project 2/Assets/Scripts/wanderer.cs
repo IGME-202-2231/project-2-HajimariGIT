@@ -17,7 +17,7 @@ public class wanderer : agent
     {
         wander,
         hunt
-    }
+    } 
     
 
     protected override void CalcSteeringForce()
