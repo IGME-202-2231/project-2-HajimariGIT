@@ -11,75 +11,138 @@ _REPLACE OR REMOVE EVERYTING BETWEEN "\_"_
 
 ## Simulation Design 
 
-Oh no! a team of vampire hunters have been amushed by vampires!  Play as air support and drop important supplies to help them survive. Watch as the vampire hunters struggle to gain materials to stop them! 
+Oh No! vampires have invded a local neighborhood. Watch as the people will try to run into their houses and the vampires roam to collect their dinner. But they need to be careful, the hunters are out....
+
+
+1. Vampires will wander and chase humans in their vicinity. They will avoid unoccupied houses. They will also try to stay in bounds of the camera and seperate.
+2. Humans will flee vampires but also seek shelter. If a vampire spots a human in a house they may chase them out. Humans will have to decide wether to run or go to their house. Some houses are locked and not able to get into...
+leaving some humans out for good. they also try to stay in bounds of the camera.
+3. Hunters will seek the closest vampire to themself.
 
 ### Controls
 
-Press right click to give the hunters wood blocks to craft weapons. Be careful with your placement as you only have so many.
+Right click to place sunspots that the vampires will avoid. 
+
+
+## _Agent 1 Name_
+
+The Hunter (seeker)
+
+### _State 1 Name_
+
+defaultSeeker
+
+#### Steering Behaviors
+
+SeekNear - seeks nearest vampire
+Seek - used in seek near
+Stay in bounds- stay in camera 
+
+   
+#### State Transistions
+
+no transition
+   
+### _State 2 Name_
+
+N/A professor said 3 agents with one having a state change was okay. 
+
+#### Steering Behaviors
+
+N/A professor said 3 agents with one having a state change was okay. 
+
+#### State Transistions
+
+N/A professor said 3 agents with one having a state change was okay. 
+
+
+
+
+
+
+## _Agent 2 Name_
+
+Vampire (wanderer)
+
+### _State 1 Name_
+
+wander
+
+#### Steering Behaviors
+
+Wander - wander around the map
+Stay In Bounds - stays in bounds of camera
+Avoid Obstacles - avoid obstacles
+Seperate - seperate from other vampires
+
+
+#### State Transistions
+
+When a human is not close 
+
+
+### _State 2 Name_
+
+hunt 
+
+#### Steering Behaviors
+Avoid Obstacles - avoid obstacles
+SeekNear - seek near humans 
+
+
+#### State Transistions
+
+When a human is close 
+
+
+
+
 
 
 
 ## _Agent 1 Name_
 
-The hunter will avoid the vampires and try to group up when needed with other agents. If the hunter has enough resources for a weapon then it will chase and kill vampires.
+Human (fleer)
 
 ### _State 1 Name_
 
-Survive 
-Run away and group up with other hunters
+defaultFlee
 
 #### Steering Behaviors
 
-Flee - from vampires 
-Group - toward other hunters
-Pull - take one hunter out of the group to get a weapon. If not in a group that one goes
+FleeAllStart/Flee all - flees all vampires that are close
+Flee- used in flee all
+StayInBoundsV2 - stays in bounds but seeks house
 
    
 #### State Transistions
 
-When ones resource is good enough for a weapon
-When one is picked to get wood from the group
-When a group is found 
+no transition
    
 ### _State 2 Name_
 
-Kill
+N/A professor said 3 agents with one having a state change was okay. 
 
 #### Steering Behaviors
 
-Kill- will prioritize seeking lower level vampires first and vampires that have killed before 
+N/A professor said 3 agents with one having a state change was okay. 
 
 #### State Transistions
 
-When enough wood is gathered
+N/A professor said 3 agents with one having a state change was okay. 
 
-## _Agent 2 Name_
 
-The vampire wil separate from the flock if there is enough vampires and hunt the hunters
 
-### _State 1 Name_
 
-Feed
-Chase hunters seperate from the group (if there are non try to get one in the group).
-#### Steering Behaviors
 
-Take - Seeks and pulls a hunter away from the pack quickly (can be done once.
-Suck - find hunters with no group
-#### State Transistions
 
-Default state if vampires are doing well (more then 50% population). 
-   
-### _State 2 Name_
 
-Survive 
-#### Steering Behaviors
 
-Hide - Group up with other vmpires 
-Avoid - avoid the hunter
-   
-#### State Transistions
 
-if vampires population is less than half.
+
+
+
+
 
 ## Sources
 
