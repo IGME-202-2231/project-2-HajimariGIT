@@ -88,7 +88,7 @@ public class AgentManager : MonoBehaviour
         Vector3 spawnOne = new Vector3();
         //spawn location
         spawnOne.x = 1.25f;
-        spawnOne.y = -1.82f;
+        spawnOne.y = -1.83f;
         //make
         GameObject one = Instantiate(humanOne, spawnOne, Quaternion.identity);   
         //assign needed things
