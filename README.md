@@ -172,6 +172,10 @@ Gpt- used for understanding on world coordinates and clarification. prompts in r
 4. did all my own art 
 ## Known Issues
 
+Please use editor to test and grade (while git pages is up, the git pages build has issues unlike in unity. in which no known issues are present except for the possible one below)
+*Professor said to add this after submission to notify about the issue, no late points should be deducted.
+
+
 Not sure if this is a unity problem, but when i first boot up and hit start nothing works and then after I press it again it works no problem for there on out.
 
 Git pages makes two humans not work, they work fine in unity.
