@@ -250,7 +250,7 @@ public class AgentManager : MonoBehaviour
     public agent FlockClosestPlayer()
     {
 
-        float min = Mathf.Infinity, dis;
+        float min = Mathf.Infinity, dis;  
         agent nearest = null;
 
 
