@@ -1,0 +1,15 @@
+nearClipPlane; what does this do unity c#
+
+
+In Unity with C#, the nearClipPlane is a property of the camera component that specifies the distance from the camera to the near clipping plane.
+ The near clipping plane is the closest plane to the camera that objects can be rendered on. 
+Any objects that are closer to the camera than the near clipping plane won't be rendered and will be clipped from the view.
+
+
+
+User
+what does continue; do
+
+
+In programming languages like C#, the continue statement is used within loops to skip the rest of the code inside the loop for the current iteration and move on to the next iteration. 
+It is often used in conjunction with conditional statements to control the flow of the loop.

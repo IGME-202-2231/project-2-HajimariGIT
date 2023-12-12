@@ -146,21 +146,33 @@ N/A professor said 3 agents with one having a state change was okay.
 
 ## Sources
 
--   _List all project sources here –models, textures, sound clips, assets, etc._
--   _If an asset is from the Unity store, include a link to the page and the author’s name_
-https://dronnie.itch.io/cute-vampire-character vampire placeholder sprite
+https://dronnie.itch.io/cute-vampire-character vampire placeholder test sprite
+https://www.vecteezy.com/vector-art/8445417-cartoon-doodle-of-a-wooden-crate crate test placeholder asset
+
+
+
+all other art is done by me
+
+
+resources 
+
+
+Rit Mycourses - Slides week 10-14
+https://www.youtube.com/watch?v=5NTmxDSKj-Q
+https://www.youtube.com/watch?v=aBzpvUXibw0
+Gpt- used for understanding on world coordinates and clarification. prompts in repo
+
+
 
 ## Make it Your Own
 
-I will be doing my own art and will have multiple weapons for hunters. 
-Each with their on functionallity and art.
-Art will be exaggerated and cartoony.
-
+1. updated and added new steering methods
+2. added a vincity seek and flee
+3. made a new stay in bounds
+4. did all my own art 
 ## Known Issues
 
-_List any errors, lack of error checking, or specific information that I need to know to run your program_
-
+Not sure if this is a unity problem, but when i first boot up and hit start nothing works and then after I press it again it works no problem for there on out.
 ### Requirements not completed
 
-_If you did not complete a project requirement, notate that here_
-
+None that I am aware of.
