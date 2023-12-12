@@ -173,6 +173,9 @@ Gpt- used for understanding on world coordinates and clarification. prompts in r
 ## Known Issues
 
 Not sure if this is a unity problem, but when i first boot up and hit start nothing works and then after I press it again it works no problem for there on out.
+
+Git pages makes two humans not work, they work fine in unity.
+
 ### Requirements not completed
 
 None that I am aware of.
