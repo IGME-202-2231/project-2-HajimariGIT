@@ -108,6 +108,8 @@ public class AgentManager : MonoBehaviour
         humanTwo.GetComponent<fleer>().fleeState = fleer.fleerState.defaultFlee;
         humans.Add(two.GetComponent<agent>());
 
+      
+
         //taregt 2
 
         Vector3 spawnThree = new Vector3();
