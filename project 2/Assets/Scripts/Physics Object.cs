@@ -47,7 +47,7 @@ public class PhysicsObject : MonoBehaviour
 
 
 
-
+    // starts game and sets the screen 
     void Start()
     {
         Position = transform.position;
@@ -61,7 +61,7 @@ public class PhysicsObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // if statements to check gravity and frictio
         if (useGravity)
         {
             ApplyGrav(Vector3.down * gravity);
@@ -111,17 +111,17 @@ public class PhysicsObject : MonoBehaviour
     }
 
 
-
+    // applies force 
     public void ApplyForce(Vector3 force)
     {
         Acelleration += force / mass;
     }
-
+    // applies gravity
     public void ApplyGrav(Vector3 force)
     {
         Acelleration += force;
     }
-
+    //applies friction
     void ApplyFriction(float coeff)
     {
         Vector3 friction = Velocity * -1;

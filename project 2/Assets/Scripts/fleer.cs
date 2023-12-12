@@ -30,11 +30,18 @@ public class fleer : agent
 
     }
 
+    /// <summary>
+    /// used to update and apply forces 
+    /// no paramerters
+    /// </summary>
     protected override void CalcSteeringForce()
     {
+        //if default state
         if(fleeState == fleerState.defaultFlee)
         {
+            //flee all
             PhysicsObject.ApplyForce(FleeAllStart(dis));
+            //stay in bounds but search a house
             PhysicsObject.ApplyForce(StayInBoundsV2(target) * 2.5f);
 
            

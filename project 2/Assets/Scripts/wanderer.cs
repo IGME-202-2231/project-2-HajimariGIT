@@ -30,16 +30,24 @@ public class wanderer : agent
         PhysicsObject.ApplyForce(StayInBounds() *1 );
         PhysicsObject.ApplyForce(Wander(time,radius));*/
 
+        //if in wander state
         if(state == State.wander)
         {
+            //wander
             PhysicsObject.ApplyForce(Wander(time, radius) * wanderWeight);
+            //stay in bounds of camer
             PhysicsObject.ApplyForce(StayInBounds() * boundWeight);
+            //aviod obstacle
             PhysicsObject.ApplyForce(AvoidObstacles(1f) * 5.5f);
+            //seperate 
             PhysicsObject.ApplyForce(Seperate());
         }
+        //if in hunt
        else if(state == State.hunt)
         {
+            //aviod obstacles more
             PhysicsObject.ApplyForce(AvoidObstacles(1f) * 10f);
+            //seek human that is near
             PhysicsObject.ApplyForce(SeekNear(manager.humans));
         }
 
@@ -48,6 +56,10 @@ public class wanderer : agent
          
     }
 
+
+    /// <summary>
+    /// needed for gizmo and obstacles
+    /// </summary>
     private void OnDrawGizmos()
     {
         //

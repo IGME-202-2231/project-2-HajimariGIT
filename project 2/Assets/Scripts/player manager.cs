@@ -4,24 +4,26 @@ using UnityEngine;
 
 public class playermanager : MonoBehaviour
 {
-    public GameObject Spawn; // Assign your prefab or GameObject in the Unity Editor
+    public GameObject Spawn; 
     public AgentManager manager;
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Left mouse button click
-        {
-            // Get the mouse position in the game world
-            Vector3 mousePos = Input.mousePosition;
-            mousePos.z = Camera.main.nearClipPlane; // Set the distance from the camera
 
-            // Convert the mouse position to a world point
+        //if left click
+        if (Input.GetMouseButtonDown(0)) 
+        {
+           //take the mouse
+            Vector3 mousePos = Input.mousePosition;
+            //make the image overlap
+            mousePos.z = Camera.main.nearClipPlane;
+            //sets to world
             Vector3 fixedPos = Camera.main.ScreenToWorldPoint(mousePos);
 
-            // Instantiate the object at the clicked position
+           //creates
             GameObject newObject = Instantiate(Spawn, fixedPos, Quaternion.identity);
 
-            // Add the instantiated object to the manager's list
+         //makes obstacle
             manager.obstacles.Add(newObject.GetComponent<obstacles>());
         }
     }

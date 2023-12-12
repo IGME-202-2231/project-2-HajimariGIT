@@ -8,19 +8,19 @@ public class obstacles : MonoBehaviour
 
     public Renderer sprite;
     public float radius;
-
+    //to get radius
     public float Radius
     {
-        //added a buffer to make it bigger 
+       
         get { return sprite.bounds.size.x / 2 + 0.3f; }
     }
-
+    //sets radius
     private void Start()
     {
         radius = sprite.bounds.size.x / 2 + 0.3f;
     }
 
-
+    //gizmo if needed
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;

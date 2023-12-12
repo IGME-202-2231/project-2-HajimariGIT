@@ -49,12 +49,13 @@ public class AgentManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckProximityAndSwitchState();
+        SwitchState();
 
     }
 
     public void SpawnAgent()
     {
+        //spawns new agent at center 
         for (int i = 0; i < spawnNum; i++)
         {
             GameObject NewAgent;
@@ -62,7 +63,9 @@ public class AgentManager : MonoBehaviour
             SpawnNew.x = 0;
             SpawnNew.y = 0;
             SpawnNew.z = 0;
+            //creates 
             NewAgent = Instantiate(ag, SpawnNew, Quaternion.identity);
+            //assins manger and adds to list
             NewAgent.GetComponent<agent>().manager = this;
             agents.Add(NewAgent.GetComponent<agent>());
 
@@ -75,17 +78,26 @@ public class AgentManager : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// spawns each human 
+    /// </summary>
     public void SpawnHuman()
     {
+        
       
         Vector3 spawnOne = new Vector3();
+        //spawn location
         spawnOne.x = 1.25f;
         spawnOne.y = -1.82f;
+        //make
         GameObject one = Instantiate(humanOne, spawnOne, Quaternion.identity);   
+        //assign needed things
         humanOne.GetComponent<agent>().manager = this;
         humanOne.GetComponent<fleer>().target = targetOne;
         humanOne.GetComponent<fleer>().fleeState = fleer.fleerState.defaultFlee;
+        //add to list
         humans.Add(one.GetComponent<agent>());
+        //this is the same for the rest
 
         Vector3 spawnTwo = new Vector3();
         spawnTwo.x = -8f;
@@ -96,7 +108,7 @@ public class AgentManager : MonoBehaviour
         humanTwo.GetComponent<fleer>().fleeState = fleer.fleerState.defaultFlee;
         humans.Add(two.GetComponent<agent>());
 
-        ///taregt 2
+        //taregt 2
 
         Vector3 spawnThree = new Vector3();
         spawnThree.x = -8f;
@@ -136,7 +148,7 @@ public class AgentManager : MonoBehaviour
         humanSix.GetComponent<fleer>().fleeState = fleer.fleerState.defaultFlee;
         humans.Add(six.GetComponent<agent>());
 
-        //target four
+        //target 4
 
         Vector3 spawnSeven = new Vector3();
         spawnSeven.x = -6.02f;
@@ -161,17 +173,25 @@ public class AgentManager : MonoBehaviour
 
 
     }
-
+    /// <summary>
+    /// spawns seeker
+    /// </summary>
     public void SpawnSeeker()
     {
         Vector3 spawnhunter = new Vector3();
+        //spawn location
         spawnhunter.x = 4.5f;
         spawnhunter.y = 3.97f;
+        //make
         Instantiate(hunter, spawnhunter, Quaternion.identity);
+        //assigns
         hunter.GetComponent<agent>().manager = this;
         hunter.GetComponent<seeker>().target = targetOne;
+        //chnage speed
         hunter.GetComponent<PhysicsObject>().mass = 2.0f;
 
+
+        //again
         Vector3 spawnhunterTwo = new Vector3();
         spawnhunterTwo.x = -4.5f;
         spawnhunterTwo.y = 3.97f;
@@ -184,35 +204,49 @@ public class AgentManager : MonoBehaviour
 
     }
 
-    private void CheckProximityAndSwitchState()
+
+    /// <summary>
+    /// switches state if vampire is close
+    /// </summary>
+    private void SwitchState()
     {
-        float huntRadius = 1f;
-        float wanderRadius = 0.1f;
-        foreach (agent currentAgent in agents)
+        //radius for each
+        float hunt = 1f;
+        float wander = 0.1f;
+        foreach (agent now in agents)
         {
-            bool foundHuman = false;
+            //start with not found
+            bool found = false;
             foreach (agent human in humans)
             {
-                distance = Vector3.Distance(currentAgent.transform.position, human.transform.position);
+                //check distance between each human and vamp
+                distance = Vector3.Distance(now.transform.position, human.transform.position);
 
-                if (distance < huntRadius)
+                //if in the radius
+                if (distance < hunt)
                 {
-                    Debug.Log("Found human, move to hunt state.");
-                    currentAgent.GetComponent<wanderer>().SwitchState(wanderer.State.hunt);
-                    foundHuman = true;
+                    //switch states 
+                    Debug.Log("Found human, move hunt state.");
+                    now.GetComponent<wanderer>().SwitchState(wanderer.State.hunt);
+                    found = true;
                     break; 
                 }
             }
-
-            if (!foundHuman && distance > wanderRadius)
+            //otherwise
+            if (!found && distance > wander)
             {
-                Debug.Log("No human found , move to wander state.");
-                currentAgent.GetComponent<wanderer>().SwitchState(wanderer.State.wander);
+                //switch to wander 
+                Debug.Log("No human found , move wander state.");
+                now.GetComponent<wanderer>().SwitchState(wanderer.State.wander);
             }
         }
     }
 
-
+    /// <summary>
+    /// flock
+    /// was not used
+    /// </summary>
+    /// <returns></returns>
     public agent FlockClosestPlayer()
     {
 
@@ -222,10 +256,11 @@ public class AgentManager : MonoBehaviour
 
         foreach (agent player in agents)
         {
+            //if not it
             if (player != ItPlayer)
             {
                 dis = Vector2.Distance(ItPlayer.transform.position, player.transform.position);
-
+                //if distance is less then min
                 if (dis < min)
                 {
                     nearest = player;
