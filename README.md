@@ -100,7 +100,7 @@ When a human is close
 
 
 
-## _Agent 1 Name_
+## _Agent 3 Name_
 
 Human (fleer)
 
@@ -179,6 +179,7 @@ Please use editor to test and grade (while git pages is up, the git pages build 
 Not sure if this is a unity problem, but when i first boot up and hit start nothing works and then after I press it again it works no problem for there on out.
 
 Git pages makes two humans not work, they work fine in unity.
+Git pages also makes one seeker not work
 
 ### Requirements not completed
 
